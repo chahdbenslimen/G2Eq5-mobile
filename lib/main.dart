@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,6 +39,14 @@ class _CompteurPageState extends State<CompteurPage> {
     });
   }
 
+  void decrementer() {
+    if (compteur > 0) {
+      setState(() {
+        compteur--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +82,12 @@ class _CompteurPageState extends State<CompteurPage> {
               onPressed: incrementer,
               icon: const Icon(Icons.add),
               label: const Text('Incrémenter'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
+              onPressed: decrementer,
+              icon: const Icon(Icons.remove),
+              label: const Text('Décrémenter'),
             ),
           ],
         ),
